@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerComp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float playerMoney = 250;
+
+    public void AddMoney(float money)
     {
-        
+        playerMoney += money;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveMoney(float money)
     {
-        
+        playerMoney -= money;
     }
 }
