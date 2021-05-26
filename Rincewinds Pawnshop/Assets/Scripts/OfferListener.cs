@@ -18,7 +18,10 @@ public class OfferListener : MonoBehaviour
     // Update is called once per frame
     void DoOffer()
     {
+        float offer = float.Parse(OfferField.text);
         
+        GameObject customer = GameObject.Find("Customer");
+        customer.GetComponent<Customer>().HandleOffer(offer);
         Debug.Log(OfferField.text);
     }
 }

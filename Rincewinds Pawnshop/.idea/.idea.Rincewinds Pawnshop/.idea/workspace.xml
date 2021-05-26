@@ -10,19 +10,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerComp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SetupScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Customer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/SendOffer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/OfferListener.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnNPC.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnNpc.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerComp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/OfferListener.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PawnItem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DialogController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Customer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SetupScene.cs" />
     </changedPaths>
@@ -82,7 +93,7 @@
       <updated>1621797690220</updated>
       <workItem from="1621797709981" duration="4070000" />
       <workItem from="1621835641882" duration="23460000" />
-      <workItem from="1621929061863" duration="73000" />
+      <workItem from="1621929061863" duration="9773000" />
     </task>
     <task id="LOCAL-00001" summary="Scripts to set up scene with NPC and item.">
       <created>1621925887856</created>

@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Numerics;
 using UnityEditor;
+using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 public class SetupScene : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class SetupScene : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        GameObject player = GameObject.Find("Player");
         // Create NPC 
         GameObject cus = GameObject.Find("Customer");
         cus.GetComponent<SpriteRenderer>().sprite = CustSprite;
@@ -24,7 +27,7 @@ public class SetupScene : MonoBehaviour
         pItem.AddComponent<SpriteRenderer>();
         pItem.AddComponent<PawnItem>();
         ChooseItem(pItem);
-        pItem.transform.position = new Vector2(0, -1);
+        pItem.transform.position = new Vector2(0, -3);
     }
 
     private void ChooseItem(GameObject item)
@@ -33,8 +36,12 @@ public class SetupScene : MonoBehaviour
         item.GetComponent<SpriteRenderer>().sprite = pawnItems[num].GetComponent<PawnItem>().itemSprite;
         item.GetComponent<PawnItem>().name = pawnItems[num].GetComponent<PawnItem>().name;
         item.GetComponent<PawnItem>().auth = pawnItems[num].GetComponent<PawnItem>().auth;
-        item.GetComponent<PawnItem>().cost = pawnItems[num].GetComponent<PawnItem>().cost;
-        item.name = pawnItems[num].GetComponent<PawnItem>().name;
+        item.GetComponent<PawnItem>().worth = pawnItems[num].GetComponent<PawnItem>().worth;
+        item.name = "CustomerItem";
     }
 
+    private void Update()
+    {
+        
+    }
 }
