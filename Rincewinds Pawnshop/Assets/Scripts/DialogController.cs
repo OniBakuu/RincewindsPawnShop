@@ -24,7 +24,7 @@ public class DialogController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey && customer.GetComponent<Customer>().countered)
+        if (Input.anyKey && customer.GetComponent<Customer>().countered == false)
         {
             dialogBox.text = "I'm looking to get " + (int)customer.GetComponent<Customer>().sharedNum + " for this " + item.GetComponent<PawnItem>().name + ".";
         }
