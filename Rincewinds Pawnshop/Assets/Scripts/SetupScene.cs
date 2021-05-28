@@ -6,42 +6,42 @@ using System.Numerics;
 using UnityEditor;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
+
 public class SetupScene : MonoBehaviour
 {
-
+    public GameObject player;
+    public GameObject customer;
     public Sprite CustSprite;
-    public  GameObject[] pawnItems;
+    public GameObject[] pawnItems;
+    public GameObject dialogController;
+    public GameObject customerItem;
 
-    
-    
+
+
     // Start is called before the first frame update
     void Awake()
     {
-        GameObject player = GameObject.Find("Player");
         // Create NPC 
-        GameObject cus = GameObject.Find("Customer");
-        cus.GetComponent<SpriteRenderer>().sprite = CustSprite;
-        cus.transform.position = new Vector2(-7, 0);
-
-        GameObject pItem = new GameObject();
-        pItem.AddComponent<SpriteRenderer>();
-        pItem.AddComponent<PawnItem>();
-        ChooseItem(pItem);
-        pItem.transform.position = new Vector2(0, -3);
+        customer.GetComponent<SpriteRenderer>().sprite = CustSprite;
+        customer.transform.position = new Vector2(-7, 0);
+        // Create the new object in scene
+        CreateItem();
+        dialogController.GetComponent<DialogController>().DoGreeting();
     }
 
-    private void ChooseItem(GameObject item)
+    public void CreateItem()
     {
+        customerItem.transform.position = new Vector2(0, -3);
+
+        // Set it's attributes to the same as chosen item
         int num = Random.Range(0, pawnItems.Length);
-        item.GetComponent<SpriteRenderer>().sprite = pawnItems[num].GetComponent<PawnItem>().itemSprite;
-        item.GetComponent<PawnItem>().name = pawnItems[num].GetComponent<PawnItem>().name;
-        item.GetComponent<PawnItem>().auth = pawnItems[num].GetComponent<PawnItem>().auth;
-        item.GetComponent<PawnItem>().worth = pawnItems[num].GetComponent<PawnItem>().worth;
-        item.name = "CustomerItem";
-    }
-
-    private void Update()
-    {
+        customerItem.GetComponent<SpriteRenderer>().sprite = pawnItems[num].GetComponent<PawnItem>().itemSprite;
+        customerItem.GetComponent<PawnItem>().sharedName = pawnItems[num].GetComponent<PawnItem>().sharedName;
+        customerItem.GetComponent<PawnItem>().trueName = pawnItems[num].GetComponent<PawnItem>().trueName;
+        customerItem.GetComponent<PawnItem>().auth = pawnItems[num].GetComponent<PawnItem>().auth;
+        customerItem.GetComponent<PawnItem>().worth = pawnItems[num].GetComponent<PawnItem>().worth;
+        
         
     }
+
 }

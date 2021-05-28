@@ -22,6 +22,5 @@ public class OfferListener : MonoBehaviour
         
         GameObject customer = GameObject.Find("Customer");
         customer.GetComponent<Customer>().HandleOffer(offer);
-        Debug.Log(OfferField.text);
     }
 }
