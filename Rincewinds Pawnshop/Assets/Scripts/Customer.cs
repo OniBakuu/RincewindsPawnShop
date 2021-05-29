@@ -18,7 +18,7 @@ public class Customer : MonoBehaviour
     public void Start()
     {
         // Minimum number that customer would sell item for
-        item = GameObject.Find("CustomerItem");
+        //item = GameObject.Find("CustomerItem");
         acceptNum = item.GetComponent<PawnItem>().worth -
                           (item.GetComponent<PawnItem>().worth * Random.Range((float) .25, (float) .50));
         

@@ -6,7 +6,7 @@ using System.Numerics;
 using UnityEditor;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
-
+using Vector3 = UnityEngine.Vector3;
 public class SetupScene : MonoBehaviour
 {
     public GameObject player;
@@ -40,8 +40,9 @@ public class SetupScene : MonoBehaviour
         customerItem.GetComponent<PawnItem>().trueName = pawnItems[num].GetComponent<PawnItem>().trueName;
         customerItem.GetComponent<PawnItem>().auth = pawnItems[num].GetComponent<PawnItem>().auth;
         customerItem.GetComponent<PawnItem>().worth = pawnItems[num].GetComponent<PawnItem>().worth;
-        
-        
+        customerItem.GetComponent<PawnItem>().transform.localScale = new Vector3((float).15, (float).15, (float).15);
+        //Scale rings smaller with an if
+
     }
 
 }
