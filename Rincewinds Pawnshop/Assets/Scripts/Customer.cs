@@ -8,24 +8,19 @@ using UnityEngine.UI;
 //Holds customer information and methods
 public class Customer : MonoBehaviour
 {
-    private string personalty = "default"; //have different if time
-    //Receives offer made by player
-
+    public string personalty; //have different if time
+    public string[] personalities;
     public float sharedNum;
     public float acceptNum;
     public GameObject item;
     public bool countered = false;
+    public float minNumOffset;
+    public float maxNumOffset;
     public void Start()
     {
-        // Minimum number that customer would sell item for
-        //item = GameObject.Find("CustomerItem");
-        acceptNum = item.GetComponent<PawnItem>().worth -
-                          (item.GetComponent<PawnItem>().worth * Random.Range((float) .25, (float) .50));
         
-        // Number that customer tells player that item is worth
-        sharedNum = item.GetComponent<PawnItem>().worth +
-                    (item.GetComponent<PawnItem>().worth * Random.Range((float) .25, (float) .50));
     }
+    //Receives offer made by player
     public void HandleOffer(float offer)
     {
 

@@ -21,6 +21,9 @@ public class OfferListener : MonoBehaviour
         float offer = float.Parse(OfferField.text);
         
         GameObject customer = GameObject.Find("Customer");
+        GameObject item = GameObject.Find("CustomerItem");
+        if(item.GetComponent<PawnItem>().sold)
+            return; 
         customer.GetComponent<Customer>().HandleOffer(offer);
     }
 }
