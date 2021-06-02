@@ -21,12 +21,11 @@ public class SetupScene : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        // Create NPC 
-        customer.GetComponent<SpriteRenderer>().sprite = CustSprite;
-        customer.transform.position = new Vector2(-7, 0);
-        // Create the new object in scene
-        CreateNPC();
+        // Assigns new values to item
         CreateItem();
+        // Create NPC 
+        CreateNPC();
+        
         dialogController.GetComponent<DialogController>().DoGreeting();
     }
 
@@ -41,13 +40,15 @@ public class SetupScene : MonoBehaviour
         customerItem.GetComponent<PawnItem>().trueName = pawnItems[num].GetComponent<PawnItem>().trueName;
         customerItem.GetComponent<PawnItem>().auth = pawnItems[num].GetComponent<PawnItem>().auth;
         customerItem.GetComponent<PawnItem>().worth = pawnItems[num].GetComponent<PawnItem>().worth;
-        customerItem.GetComponent<PawnItem>().transform.localScale = new Vector3((float).15, (float).15, (float).15);
+        customerItem.GetComponent<PawnItem>().transform.localScale = new Vector3((float) .15, (float) .15, (float) .15);
         //Scale rings smaller with an if
-
     }
 
     public void CreateNPC()
     {
+        customer.GetComponent<SpriteRenderer>().sprite = CustSprite;
+        customer.transform.position = new Vector2(-7, 0);
+        
         customer.GetComponent<Customer>().personalty = customer.GetComponent<Customer>().personalities[Random.Range(0, customer.GetComponent<Customer>().personalities.Length)];
                 
                 switch (customer.GetComponent<Customer>().personalty)
@@ -67,11 +68,18 @@ public class SetupScene : MonoBehaviour
                 }
                 
                 // Minimum number that customer would sell item for
-                customer.GetComponent<Customer>().acceptNum = customer.GetComponent<Customer>().item.GetComponent<PawnItem>().worth -
-                                                              (customer.GetComponent<Customer>().item.GetComponent<PawnItem>().worth * Random.Range((float) .25, (float) .50));
-                
+                if(customer.GetComponent<Customer>().personalty == "unaware")
+                    customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth +
+                                                              (customerItem.GetComponent<PawnItem>().worth * Random.Range(.25f, .50f));
+
+                customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth -
+                                                              (customerItem.GetComponent<PawnItem>().worth * Random.Range(.25f, .50f));
+
                 // Number that customer tells player that item is worth
-                customer.GetComponent<Customer>().sharedNum = customer.GetComponent<Customer>().item.GetComponent<PawnItem>().worth + Random.Range(customer.GetComponent<Customer>().minNumOffset, customer.GetComponent<Customer>().maxNumOffset);
+                customer.GetComponent<Customer>().sharedNum = customerItem.GetComponent<PawnItem>().worth + (customerItem.GetComponent<PawnItem>().worth *
+                    Random.Range(customer.GetComponent<Customer>().minNumOffset, customer.GetComponent<Customer>().maxNumOffset));
+                
+
     }
 
 }

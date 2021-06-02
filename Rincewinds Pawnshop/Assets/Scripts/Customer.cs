@@ -47,8 +47,11 @@ public class Customer : MonoBehaviour
     {
         countered = true;
         GameObject dialog = GameObject.Find("DialogText");
-        if (sharedNum <= acceptNum)
-            sharedNum *= Random.Range((float) .05, (float) .10);
-        dialog.GetComponent<Text>().text = "Hmmm. Can you do " + sharedNum + "?";
+        if (sharedNum >= acceptNum)
+        {
+            sharedNum = sharedNum - (sharedNum * Random.Range(.05f, .10f));
+        }
+
+        dialog.GetComponent<Text>().text = "Hmmm. Can you do " + (int)sharedNum + "?";
     }
 } // end 

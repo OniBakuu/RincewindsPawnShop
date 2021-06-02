@@ -24,6 +24,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Customer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NextCustomer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartButton.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -34,10 +35,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerComp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PawnItem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DialogController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Customer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/NextCustomer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SetupScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/OfferListener.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StartButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/WinListener.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Customer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SetupScene.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1swxtdi9MtVnZnb4paSBhx3EsY9" />
@@ -95,7 +98,7 @@
       <updated>1621797690220</updated>
       <workItem from="1621797709981" duration="4070000" />
       <workItem from="1621835641882" duration="23460000" />
-      <workItem from="1621929061863" duration="28959000" />
+      <workItem from="1621929061863" duration="40389000" />
     </task>
     <task id="LOCAL-00001" summary="Scripts to set up scene with NPC and item.">
       <created>1621925887856</created>

@@ -18,8 +18,8 @@ public class NextCustomer : MonoBehaviour
     {
         GameObject setup = GameObject.Find("EventSystem");
         GameObject dialog = GameObject.Find("DialogController");
-        setup.GetComponent<SetupScene>().CreateNPC();
         setup.GetComponent<SetupScene>().CreateItem();
+        setup.GetComponent<SetupScene>().CreateNPC();
         dialog.GetComponent<DialogController>().DoGreeting();
         
     }
