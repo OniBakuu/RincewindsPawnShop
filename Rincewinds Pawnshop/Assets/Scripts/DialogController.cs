@@ -13,11 +13,7 @@ public class DialogController : MonoBehaviour
     private GameObject item;
     public GameObject customer;
     public bool soldText = false;
-    void Start()
-    {
-        
-
-    }
+    public Text money;
 
     private void Update()
     {
@@ -48,10 +44,42 @@ public class DialogController : MonoBehaviour
         // string display;
         switch (itemName)
         {
-            case "Goblet":
-                dialogBox.text = "placeholder text";
+            case "Fool's Gold Goblet":
+                dialogBox.text = "Hmmm turns out it was a goblet made of fool's gold. Better luck next time!";
+                break;
+            case "Bottomless Grail":
+                dialogBox.text = "The clay goblet turned out to be a bottomless grail! What a find!";
+                break;
+            case "Clay Goblet":
+                dialogBox.text = "Oh. It's just a normal clay goblet. No magic here.";
+                break;
+            case "Jeweled Goblet":
+                dialogBox.text = "Wow this actually was a jeweled goblet.";
+                break;
+            case "Band of Fool's Gold":
+                dialogBox.text = "A band of fool's gold is all this is. A pity.";
+                break;
+            case "Glass Tiara":
+                dialogBox.text = "The gem is simply glass. At least it looks pretty huh?";
+                break;
+            case "Ring of Water Walking":
+                dialogBox.text = "Not just a sapphire. A ring of water walking. How rare!";
+                break;
+            case "Red Glass":
+                dialogBox.text = "Fat red crystal? Nope just red glass, nothing to see here.";
+                break;
+            case "Shard of Crystal Golem":
+                dialogBox.text = "A clueless adventurer indeed. This is a shard of a crystal golem!";
+                break;
+            case "Greater Mana Crystal":
+                dialogBox.text = "This pretty purple crystal is packed full of mana, valuable indeed";
                 break;
         }
 
+    }
+
+    public void UpdateMoney(int amount)
+    {
+        money.text = "Gold: " + amount;
     }
 }

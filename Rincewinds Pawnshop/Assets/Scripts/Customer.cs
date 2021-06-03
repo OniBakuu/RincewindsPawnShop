@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Xml.Xsl;
 using UnityEngine;
@@ -13,13 +14,10 @@ public class Customer : MonoBehaviour
     public float sharedNum;
     public float acceptNum;
     public GameObject item;
-    public bool countered = false;
+    public bool countered;
     public float minNumOffset;
     public float maxNumOffset;
-    public void Start()
-    {
-        
-    }
+
     //Receives offer made by player
     public void HandleOffer(float offer)
     {
@@ -35,9 +33,11 @@ public class Customer : MonoBehaviour
             player.GetComponent<PlayerComp>().AddMoney(item.GetComponent<PawnItem>().worth);
             item.GetComponent<PawnItem>().sold = true;
             
-            // Display text about the item you bought i.e. whether it was real or not
+            
             GameObject dialog = GameObject.Find("DialogController");
+            // Display text about the item you bought i.e. whether it was real or not
             dialog.GetComponent<DialogController>().DisplaySoldText(item.GetComponent<PawnItem>().trueName);
+            dialog.GetComponent<DialogController>().UpdateMoney((int)player.GetComponent<PlayerComp>().playerMoney);
         }
             
 
@@ -47,11 +47,12 @@ public class Customer : MonoBehaviour
     {
         countered = true;
         GameObject dialog = GameObject.Find("DialogText");
-        if (sharedNum >= acceptNum)
+        sharedNum = sharedNum - (sharedNum * Random.Range(.05f, .10f));
+        if (sharedNum <= acceptNum)
         {
-            sharedNum = sharedNum - (sharedNum * Random.Range(.05f, .10f));
+            sharedNum = acceptNum;
         }
-
+        
         dialog.GetComponent<Text>().text = "Hmmm. Can you do " + (int)sharedNum + "?";
     }
 } // end 

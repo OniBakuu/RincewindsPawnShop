@@ -15,5 +15,10 @@ public class WinListener : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+
+        if (player.GetComponent<PlayerComp>().playerMoney == 0)
+            SceneManager.LoadScene(3);
+
+
     }
 }

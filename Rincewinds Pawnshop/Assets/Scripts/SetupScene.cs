@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.Numerics;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -15,6 +17,8 @@ public class SetupScene : MonoBehaviour
     public GameObject[] pawnItems;
     public GameObject dialogController;
     public GameObject customerItem;
+    private int sales;
+    private string[] bought;
 
 
 
@@ -26,9 +30,10 @@ public class SetupScene : MonoBehaviour
         // Create NPC 
         CreateNPC();
         
+        dialogController.GetComponent<DialogController>().UpdateMoney((int)player.GetComponent<PlayerComp>().playerMoney);
         dialogController.GetComponent<DialogController>().DoGreeting();
     }
-
+    
     public void CreateItem()
     {
         customerItem.transform.position = new Vector2(0, -3);
@@ -41,7 +46,14 @@ public class SetupScene : MonoBehaviour
         customerItem.GetComponent<PawnItem>().auth = pawnItems[num].GetComponent<PawnItem>().auth;
         customerItem.GetComponent<PawnItem>().worth = pawnItems[num].GetComponent<PawnItem>().worth;
         customerItem.GetComponent<PawnItem>().transform.localScale = new Vector3((float) .15, (float) .15, (float) .15);
+
+        customerItem.GetComponent<PawnItem>().sold = false;
         //Scale rings smaller with an if
+
+        sales++;
+
+        if (sales > pawnItems.Length)
+            SceneManager.LoadScene(3);
     }
 
     public void CreateNPC()
