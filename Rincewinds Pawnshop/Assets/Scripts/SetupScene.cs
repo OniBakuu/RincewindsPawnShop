@@ -105,7 +105,7 @@ public class SetupScene : MonoBehaviour
                 }
 
                 customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth -
-                                                              (customerItem.GetComponent<PawnItem>().worth * Random.Range(.25f, .50f));
+                                                              (customerItem.GetComponent<PawnItem>().worth * Random.Range(.35f, .50f));
 
                 // Number that customer tells player that item is worth
                 customer.GetComponent<Customer>().sharedNum = customerItem.GetComponent<PawnItem>().worth + (customerItem.GetComponent<PawnItem>().worth *
