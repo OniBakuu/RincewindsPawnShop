@@ -21,6 +21,7 @@ public class NextCustomer : MonoBehaviour
         setup.GetComponent<SetupScene>().CreateItem();
         setup.GetComponent<SetupScene>().CreateNPC();
         dialog.GetComponent<DialogController>().DoGreeting();
-        
+        dialog.GetComponent<DialogController>().soldText = false;
+
     }
 }

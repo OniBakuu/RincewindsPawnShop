@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,8 +19,16 @@ public class OfferListener : MonoBehaviour
     // Update is called once per frame
     void DoOffer()
     {
-        float offer = float.Parse(OfferField.text);
-        
+        float offer;
+        try
+        {
+            offer = float.Parse(OfferField.text);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("caught");
+            return;
+        }
         GameObject customer = GameObject.Find("Customer");
         GameObject item = GameObject.Find("CustomerItem");
         if(item.GetComponent<PawnItem>().sold)

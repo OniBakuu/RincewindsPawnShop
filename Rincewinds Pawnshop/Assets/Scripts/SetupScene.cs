@@ -59,9 +59,12 @@ public class SetupScene : MonoBehaviour
     public void CreateNPC()
     {
         customer.GetComponent<SpriteRenderer>().sprite = CustSprite;
-        customer.transform.position = new Vector2(-7, 0);
-        
+        customer.transform.position = new Vector2(-2, 0);
+        customer.transform.localScale = new Vector2(.2f, .2f);
+            
         customer.GetComponent<Customer>().personalty = customer.GetComponent<Customer>().personalities[Random.Range(0, customer.GetComponent<Customer>().personalities.Length)];
+                if(customerItem.GetComponent<PawnItem>().auth == false)
+                    customer.GetComponent<Customer>().personalty = "dishonest";
                 
                 switch (customer.GetComponent<Customer>().personalty)
                 {
@@ -80,9 +83,17 @@ public class SetupScene : MonoBehaviour
                 }
                 
                 // Minimum number that customer would sell item for
-                if(customer.GetComponent<Customer>().personalty == "unaware")
+                if (customer.GetComponent<Customer>().personalty == "unaware")
+                {
                     customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth +
-                                                              (customerItem.GetComponent<PawnItem>().worth * Random.Range(.25f, .50f));
+                                                                  (customerItem.GetComponent<PawnItem>().worth *
+                                                                   Random.Range(.25f, .50f));
+
+                    if (customer.GetComponent<Customer>().sharedNum < customer.GetComponent<Customer>().acceptNum)
+                        customer.GetComponent<Customer>().acceptNum = customer.GetComponent<Customer>().sharedNum -
+                                                                      (customer.GetComponent<Customer>().sharedNum *
+                                                                       Random.Range(.5f, .15f));
+                }
 
                 customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth -
                                                               (customerItem.GetComponent<PawnItem>().worth * Random.Range(.25f, .50f));
