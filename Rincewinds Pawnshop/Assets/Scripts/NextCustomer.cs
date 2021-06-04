@@ -18,10 +18,12 @@ public class NextCustomer : MonoBehaviour
     {
         GameObject setup = GameObject.Find("EventSystem");
         GameObject dialog = GameObject.Find("DialogController");
+        GameObject customer = GameObject.Find("Customer");
         setup.GetComponent<SetupScene>().CreateItem();
         setup.GetComponent<SetupScene>().CreateNPC();
         dialog.GetComponent<DialogController>().DoGreeting();
         dialog.GetComponent<DialogController>().soldText = false;
+        customer.GetComponent<Customer>().countered = false;
 
     }
 }

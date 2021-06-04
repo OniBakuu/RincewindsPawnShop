@@ -40,10 +40,10 @@ public class SetupScene : MonoBehaviour
         // Set it's attributes to the same as chosen item
         int num = Random.Range(0, pawnItems.Length);
         
-        if (bought.Contains(pawnItems[num].GetComponent<PawnItem>().trueName))
+        // prevent items from spawning more than once a playthrough
+        if (bought.Contains(pawnItems[num].GetComponent<PawnItem>().trueName)) // this loop does not work as intended
         {
             CreateItem();
-            Debug.Log("got here");
         }
         
         Debug.Log(pawnItems[num].GetComponent<PawnItem>().trueName);
@@ -101,7 +101,7 @@ public class SetupScene : MonoBehaviour
                     if (customer.GetComponent<Customer>().sharedNum < customer.GetComponent<Customer>().acceptNum)
                         customer.GetComponent<Customer>().acceptNum = customer.GetComponent<Customer>().sharedNum -
                                                                       (customer.GetComponent<Customer>().sharedNum *
-                                                                       Random.Range(.5f, .15f));
+                                                                       Random.Range(.10f, .20f));
                 }
 
                 customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth -

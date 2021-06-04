@@ -53,6 +53,7 @@ public class Customer : MonoBehaviour
         if (sharedNum <= acceptNum)
         {
             sharedNum = acceptNum;
+            
         }
         
         dialog.GetComponent<Text>().text = "Hmmm. Can you do " + (int)sharedNum + "?";
