@@ -13,13 +13,12 @@ public class SetupScene : MonoBehaviour
 {
     public GameObject player;
     public GameObject customer;
-    public Sprite CustSprite;
+    public Sprite custSprite;
     public GameObject[] pawnItems;
     public GameObject dialogController;
     public GameObject customerItem;
     private int sales;
-    private string[] bought;
-
+    public List<String> bought;
 
 
     // Start is called before the first frame update
@@ -37,9 +36,19 @@ public class SetupScene : MonoBehaviour
     public void CreateItem()
     {
         customerItem.transform.position = new Vector2(0, -3);
-
+        
         // Set it's attributes to the same as chosen item
         int num = Random.Range(0, pawnItems.Length);
+        
+        if (bought.Contains(pawnItems[num].GetComponent<PawnItem>().trueName))
+        {
+            CreateItem();
+            Debug.Log("got here");
+        }
+        
+        Debug.Log(pawnItems[num].GetComponent<PawnItem>().trueName);
+        bought.Add(pawnItems[num].GetComponent<PawnItem>().trueName);
+        
         customerItem.GetComponent<SpriteRenderer>().sprite = pawnItems[num].GetComponent<PawnItem>().itemSprite;
         customerItem.GetComponent<PawnItem>().sharedName = pawnItems[num].GetComponent<PawnItem>().sharedName;
         customerItem.GetComponent<PawnItem>().trueName = pawnItems[num].GetComponent<PawnItem>().trueName;
@@ -58,7 +67,7 @@ public class SetupScene : MonoBehaviour
 
     public void CreateNPC()
     {
-        customer.GetComponent<SpriteRenderer>().sprite = CustSprite;
+        customer.GetComponent<SpriteRenderer>().sprite = custSprite;
         customer.transform.position = new Vector2(-2, 0);
         customer.transform.localScale = new Vector2(.2f, .2f);
             
@@ -103,6 +112,12 @@ public class SetupScene : MonoBehaviour
                     Random.Range(customer.GetComponent<Customer>().minNumOffset, customer.GetComponent<Customer>().maxNumOffset));
                 
 
+    }
+
+    public void ResetGame()
+    {
+        sales = 0;
+        player.GetComponent<PlayerComp>().playerMoney = player.GetComponent<PlayerComp>().baseMoney;
     }
 
 }

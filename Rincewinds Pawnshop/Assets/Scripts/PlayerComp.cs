@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerComp : MonoBehaviour
 {
-    public float playerMoney = 250;
+    public float playerMoney = 500;
+    public float baseMoney = 500;
     public void AddMoney(float money)
     {
         playerMoney += money;

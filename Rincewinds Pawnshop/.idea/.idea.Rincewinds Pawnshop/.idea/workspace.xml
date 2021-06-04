@@ -19,6 +19,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RetryButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerComp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SetupScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Customer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -33,12 +34,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnNpc.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StartButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerComp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/WinListener.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PawnItem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/OfferListener.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DialogController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/NextCustomer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerComp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/RetryButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/WinListener.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Customer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SetupScene.cs" />
     </changedPaths>
@@ -99,7 +101,7 @@
       <workItem from="1621797709981" duration="4070000" />
       <workItem from="1621835641882" duration="23460000" />
       <workItem from="1621929061863" duration="45103000" />
-      <workItem from="1622704363310" duration="11353000" />
+      <workItem from="1622704363310" duration="15252000" />
     </task>
     <task id="LOCAL-00001" summary="Scripts to set up scene with NPC and item.">
       <created>1621925887856</created>

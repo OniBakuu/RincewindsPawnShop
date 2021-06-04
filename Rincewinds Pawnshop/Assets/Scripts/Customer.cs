@@ -21,6 +21,9 @@ public class Customer : MonoBehaviour
     //Receives offer made by player
     public void HandleOffer(float offer)
     {
+        GameObject player = GameObject.Find("Player");
+        if (offer > player.GetComponent<PlayerComp>().playerMoney)
+            return;
 
         if (acceptNum > offer)
         {
@@ -28,7 +31,6 @@ public class Customer : MonoBehaviour
         }
         else
         {
-            GameObject player = GameObject.Find("Player");
             player.GetComponent<PlayerComp>().RemoveMoney(offer);
             player.GetComponent<PlayerComp>().AddMoney(item.GetComponent<PawnItem>().worth);
             item.GetComponent<PawnItem>().sold = true;
