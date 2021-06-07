@@ -7,7 +7,7 @@ using UnityEngine;
 // Holds information about items
 public class PawnItem : MonoBehaviour
 {
-    public float worth;
+    public int worth;
     public string sharedName;
     public string trueName;
     public bool auth = true;

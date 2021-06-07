@@ -21,6 +21,7 @@ public class SetupScene : MonoBehaviour
     public List<String> bought;
 
 
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,7 +30,7 @@ public class SetupScene : MonoBehaviour
         // Create NPC 
         CreateNPC();
         
-        dialogController.GetComponent<DialogController>().UpdateMoney((int)player.GetComponent<PlayerComp>().playerMoney);
+        dialogController.GetComponent<DialogController>().UpdateMoney((int)player.GetComponent<PlayerComp>().baseMoney);
         dialogController.GetComponent<DialogController>().DoGreeting();
     }
     
@@ -43,10 +44,10 @@ public class SetupScene : MonoBehaviour
         // prevent items from spawning more than once a playthrough
         if (bought.Contains(pawnItems[num].GetComponent<PawnItem>().trueName)) // this loop does not work as intended
         {
-            CreateItem();
+            //CreateItem();
         }
         
-        Debug.Log(pawnItems[num].GetComponent<PawnItem>().trueName);
+        //Debug.Log(pawnItems[num].GetComponent<PawnItem>().trueName);
         bought.Add(pawnItems[num].GetComponent<PawnItem>().trueName);
         
         customerItem.GetComponent<SpriteRenderer>().sprite = pawnItems[num].GetComponent<PawnItem>().itemSprite;
@@ -61,7 +62,7 @@ public class SetupScene : MonoBehaviour
 
         sales++;
 
-        if (sales > pawnItems.Length)
+        if (sales > pawnItems.Length+1)
             SceneManager.LoadScene(3);
     }
 
@@ -88,29 +89,40 @@ public class SetupScene : MonoBehaviour
                     case "unaware":
                         customer.GetComponent<Customer>().minNumOffset = -.35f;
                         customer.GetComponent<Customer>().maxNumOffset = -.50f;
+                        customer.GetComponent<Customer>().aware = false;
                         break;
                 }
                 
                 // Minimum number that customer would sell item for
-                if (customer.GetComponent<Customer>().personalty == "unaware")
+                if (customer.GetComponent<Customer>().aware == false)
                 {
                     customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth +
-                                                                  (customerItem.GetComponent<PawnItem>().worth *
-                                                                   Random.Range(.25f, .50f));
+                                                                  (int)(customerItem.GetComponent<PawnItem>().worth *
+                                                                   Random.Range(-.35f, -.50f));
+                    Debug.Log("is unaware. Share:" + customer.GetComponent<Customer>().sharedNum + " accept:" + customer.GetComponent<Customer>().acceptNum  );
 
-                    if (customer.GetComponent<Customer>().sharedNum < customer.GetComponent<Customer>().acceptNum)
-                        customer.GetComponent<Customer>().acceptNum = customer.GetComponent<Customer>().sharedNum -
-                                                                      (customer.GetComponent<Customer>().sharedNum *
-                                                                       Random.Range(.10f, .20f));
+                    if (customer.GetComponent<Customer>().sharedNum < customer.GetComponent<Customer>().acceptNum) // Since fixing this if/else I don't think this will ever happen, but I'll leave it for edge cases
+                    {
+                        customer.GetComponent<Customer>().acceptNum = customer.GetComponent<Customer>().sharedNum;
+                    }
                 }
 
-                customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth -
-                                                              (customerItem.GetComponent<PawnItem>().worth * Random.Range(.35f, .50f));
+                else
+                {
+                    customer.GetComponent<Customer>().acceptNum = customerItem.GetComponent<PawnItem>().worth -
+                                                                  (int) (customerItem.GetComponent<PawnItem>().worth *
+                                                                         Random.Range(.35f, .50f));
 
-                // Number that customer tells player that item is worth
-                customer.GetComponent<Customer>().sharedNum = customerItem.GetComponent<PawnItem>().worth + (customerItem.GetComponent<PawnItem>().worth *
-                    Random.Range(customer.GetComponent<Customer>().minNumOffset, customer.GetComponent<Customer>().maxNumOffset));
-                
+                    // Number that customer tells player that item is worth
+                    customer.GetComponent<Customer>().sharedNum = customerItem.GetComponent<PawnItem>().worth +
+                                                                  (int) (customerItem.GetComponent<PawnItem>().worth *
+                                                                         Random.Range(
+                                                                             customer.GetComponent<Customer>()
+                                                                                 .minNumOffset,
+                                                                             customer.GetComponent<Customer>()
+                                                                                 .maxNumOffset));
+                }
+
 
     }
 

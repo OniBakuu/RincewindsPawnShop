@@ -11,13 +11,15 @@ public class Customer : MonoBehaviour
 {
     public string personalty; //have different if time
     public string[] personalities;
-    public float sharedNum;
-    public float acceptNum;
+    public int sharedNum;
+    public int acceptNum;
     public GameObject item;
     public bool countered;
     public float minNumOffset;
     public float maxNumOffset;
 
+    public bool aware = true;
+    
     //Receives offer made by player
     public void HandleOffer(float offer)
     {
@@ -49,13 +51,14 @@ public class Customer : MonoBehaviour
     {
         countered = true;
         GameObject dialog = GameObject.Find("DialogText");
-        sharedNum = sharedNum - (sharedNum * Random.Range(.05f, .10f));
-        if (sharedNum <= acceptNum)
+        sharedNum -= (int)(sharedNum * Random.Range(.05f, .10f));
+        if (sharedNum < acceptNum || sharedNum > acceptNum)
         {
             sharedNum = acceptNum;
-            
+            //acceptNum -= (int) (acceptNum * Random.Range(.05f, .20f));
+
         }
         
-        dialog.GetComponent<Text>().text = "Hmmm. Can you do " + (int)sharedNum + "?";
+        dialog.GetComponent<Text>().text = "Hmmm. Can you do " + sharedNum + "?";
     }
 } // end 

@@ -752,7 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: worth
-      value: 275
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: trueName
@@ -1378,7 +1378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: worth
-      value: 475
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: trueName
@@ -2040,7 +2040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: worth
-      value: 100
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: trueName
@@ -2301,7 +2301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: worth
-      value: 75
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2916784158892583044, guid: cd89daf13fb6b5643bc8a573372bf6ca, type: 3}
       propertyPath: trueName
@@ -2711,6 +2711,7 @@ MonoBehaviour:
   countered: 0
   minNumOffset: 0
   maxNumOffset: 0
+  aware: 1
 --- !u!4 &2133376776
 Transform:
   m_ObjectHideFlags: 0
@@ -2751,7 +2752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a2308d4eb6feb47944e0f02f18bf09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worth: 75
+  worth: 125
   sharedName: Golden Goblet
   trueName: Fool's Gold Goblet
   auth: 0
