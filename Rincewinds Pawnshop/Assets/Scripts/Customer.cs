@@ -52,7 +52,7 @@ public class Customer : MonoBehaviour
         countered = true;
         GameObject dialog = GameObject.Find("DialogText");
         sharedNum -= (int)(sharedNum * Random.Range(.05f, .10f));
-        if (sharedNum < acceptNum || sharedNum > acceptNum)
+        if (sharedNum < acceptNum)
         {
             sharedNum = acceptNum;
             //acceptNum -= (int) (acceptNum * Random.Range(.05f, .20f));
